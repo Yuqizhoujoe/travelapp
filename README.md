@@ -79,7 +79,7 @@ url: `/post`
 ```
 ### Post Travel Feed
 ```
-type 
+type
 ```
 
 
