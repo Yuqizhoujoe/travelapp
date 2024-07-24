@@ -8,7 +8,7 @@ Web: [﻿github.com/Yuqizhoujoe/travelweb](https://github.com/Yuqizhoujoe/travel
 
 Go backend: [﻿github.com/Yuqizhoujoe/travelgo](https://github.com/Yuqizhoujoe/travelgo) 
 
-Java backend: 
+Java backend: [github.com/stacyji/travelJava](https://github.com/stacyji/travelJava)
 
 # Tech Stack
 ## Frontend
