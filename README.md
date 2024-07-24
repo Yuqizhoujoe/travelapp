@@ -8,10 +8,22 @@ Go backend: [﻿github.com/Yuqizhoujoe/travelgo](https://github.com/Yuqizhoujoe/
 
 Java backend: 
 
-# Non-Functionality
-## Scalability
-- data sharding
-- data replication
+# Tech Stack
+## Frontend
+- React, TypeScript
+### Article Editor
+- Slate: edit article
+    - [﻿www.slatejs.org/examples/images](https://www.slatejs.org/examples/images) 
+- Tiptap 
+    - [﻿tiptap.dev/docs/examples/basics/default-text-editor](https://tiptap.dev/docs/examples/basics/default-text-editor) 
+    - [﻿tiptap.dev/docs/editor/extensions/nodes/image](https://tiptap.dev/docs/editor/extensions/nodes/image) 
+## Backend
+- Go, Gin
+- Java, Sprint boot
+## Cloud
+- GCP
+## Database
+- Firestore
 # Functionality
 ## Feed - based on the destination
 - Get the travel destination information (Not sure) Web crawler
@@ -69,17 +81,53 @@ feedContent Markdown
 ## Section 2: Video Content
 Here is a video:
 <video src="https://www.youtube.com/watch?v=dQw4w9WgXcQ"></video>
-Another video:
-<video src="https://vimeo.com/12345678"></video>
+Image: 
+<img src="https://vimeo.com/12345678"></img>
+```
+```
+type PostUploadContent = {
+  content: string
+}
+```
+### Upload Image or video
+```
+POST /travel/posts/upload
+Content-Type: multipart/form-data
+body: FormData {file}
+
+response[200] OK
+Content-Type: application/json
+data: {
+  assetLink: string -> GCS location link 
+}
 ```
 ### Create Post
 ```
-POST
-url: `/post`
+POST /travel/posts 
+Content-Type: application/json
+body: PostUploadContent
+
+response[201] Created
+Content-Type: application/json
+data: {
+  success: true
+}
 ```
-### Post Travel Feed
+### Get Posts
 ```
-type
+GET /travel/posts
+
+response[200] OK
+Content-Type: application/json
+data: Post[]
+```
+### Get Post Content
+```
+GET /travel/posts/{POST_ID}
+
+response[200] OK
+Content-Type: application/json
+data: PostContent
 ```
 
 
