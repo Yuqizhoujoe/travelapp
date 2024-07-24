@@ -1,6 +1,12 @@
 <p><a target="_blank" href="https://app.eraser.io/workspace/msyd9SQo08JUWQItKwPb" id="edit-in-eraser-github-link"><img alt="Edit in Eraser" src="https://firebasestorage.googleapis.com/v0/b/second-petal-295822.appspot.com/o/images%2Fgithub%2FOpen%20in%20Eraser.svg?alt=media&amp;token=968381c8-a7e7-472a-8ed6-4a6626da5501"></a></p>
 
-# travel-app
+# HaveFunTravel
+Core: Travel Blog management system
+
+AddOn Features:
+
+- AI assistance
+- Machine learning recommendation
 # Repos
 App Docs: [﻿github.com/Yuqizhoujoe/travelapp](https://github.com/Yuqizhoujoe/travelapp) 
 
@@ -8,7 +14,7 @@ Web: [﻿github.com/Yuqizhoujoe/travelweb](https://github.com/Yuqizhoujoe/travel
 
 Go backend: [﻿github.com/Yuqizhoujoe/travelgo](https://github.com/Yuqizhoujoe/travelgo) 
 
-Java backend: [github.com/stacyji/travelJava](https://github.com/stacyji/travelJava)
+Java backend: [﻿github.com/stacyji/travelJava](https://github.com/stacyji/travelJava) 
 
 # Tech Stack
 ## Frontend
@@ -19,6 +25,10 @@ Java backend: [github.com/stacyji/travelJava](https://github.com/stacyji/travelJ
 - Tiptap 
     - [﻿tiptap.dev/docs/examples/basics/default-text-editor](https://tiptap.dev/docs/examples/basics/default-text-editor)  
     - [﻿tiptap.dev/docs/editor/extensions/nodes/image](https://tiptap.dev/docs/editor/extensions/nodes/image) 
+### CSS Style
+- Figma AI
+- Pure CSS
+    - how to unify CSS styles?
 ## Backend
 - Go, Gin
 - Java, Sprint boot
@@ -26,6 +36,14 @@ Java backend: [github.com/stacyji/travelJava](https://github.com/stacyji/travelJ
 - GCP
 ## Database
 - Firestore
+## Authentication
+- Firebase
+## CICD
+- Github Actions
+## Deployment
+- Docker
+- Kubernetes
+- GCP
 # Functionality
 ## Feed - based on the destination
 - Get the travel destination information (Not sure) Web crawler
@@ -64,7 +82,7 @@ type Post = {
   postId: string;
   postTitle: string;
   postLink: string; // user might share outside the platform
-  postPreview: string; // thumbnail image
+  postThumbnail: string; // thumbnail image
   timestamp: string;
   location: string;  
 }
@@ -74,24 +92,25 @@ type PostContent = {
   postId: string;
   postTitle: string;
   postLink: string;
+  postThumbnail: string; // thumbnail image
   postContent: string; // use react markdown to render it
 }
 
-feedContent Markdown
-[﻿github.com/zenoamaro/react-quill](https://github.com/zenoamaro/react-quill)
-
-## Section 2: Video Content
+postContent Markdown
+## Video Content
 Here is a video:
 <video src="https://www.youtube.com/watch?v=dQw4w9WgXcQ"></video>
 Image: 
-<img src="https://vimeo.com/12345678"></img>
+<img src={image_link_from_gcs}></img>
 ```
 ```
 type PostUploadContent = {
-  content: string
+  content: string;
+  postTitle: string;
+  postThumbnail: string;
 }
 ```
-### Upload Image or video
+### Upload Image
 ```
 POST /travel/posts/upload
 Content-Type: multipart/form-data
@@ -112,8 +131,11 @@ body: PostUploadContent
 response[201] Created
 Content-Type: application/json
 data: {
-  success: true
+  success: true,
+  postId
 }
+
+success -> navigate(/posts/{postId})
 ```
 ### Get Posts
 ```
@@ -123,8 +145,10 @@ response[200] OK
 Content-Type: application/json
 data: Post[]
 ```
-### Get Post Content
+### Get Post Content - Post View page
 ```
+after travel.com/posts/123
+
 GET /travel/posts/{POST_ID}
 
 response[200] OK
