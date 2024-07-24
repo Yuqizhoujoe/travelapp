@@ -2,6 +2,8 @@
 
 # travel-app
 # Repos
+App Docs: [﻿github.com/Yuqizhoujoe/travelapp](https://github.com/Yuqizhoujoe/travelapp) 
+
 Web: [﻿github.com/Yuqizhoujoe/travelweb](https://github.com/Yuqizhoujoe/travelweb) 
 
 Go backend: [﻿github.com/Yuqizhoujoe/travelgo](https://github.com/Yuqizhoujoe/travelgo) 
@@ -15,7 +17,7 @@ Java backend:
 - Slate: edit article
     - [﻿www.slatejs.org/examples/images](https://www.slatejs.org/examples/images) 
 - Tiptap 
-    - [﻿tiptap.dev/docs/examples/basics/default-text-editor](https://tiptap.dev/docs/examples/basics/default-text-editor) 
+    - [﻿tiptap.dev/docs/examples/basics/default-text-editor](https://tiptap.dev/docs/examples/basics/default-text-editor)  
     - [﻿tiptap.dev/docs/editor/extensions/nodes/image](https://tiptap.dev/docs/editor/extensions/nodes/image) 
 ## Backend
 - Go, Gin
@@ -98,7 +100,7 @@ body: FormData {file}
 response[200] OK
 Content-Type: application/json
 data: {
-  assetLink: string -> GCS location link 
+  link: string -> GCS location link 
 }
 ```
 ### Create Post
