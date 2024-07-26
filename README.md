@@ -16,17 +16,23 @@ Go backend: [﻿github.com/Yuqizhoujoe/travelgo](https://github.com/Yuqizhoujoe/
 
 Java backend: [﻿github.com/stacyji/travelJava](https://github.com/stacyji/travelJava) 
 
+Design: [﻿builder.io/content](https://builder.io/content) 
+
 # Tech Stack
 ## Frontend
 - React, TypeScript
-### Article Editor
-- Slate: edit article
-    - [﻿www.slatejs.org/examples/images](https://www.slatejs.org/examples/images) 
+### Post Editor
+- [﻿Editor.js](https://editorjs.io/) : Amazing, Bravo!! Have very detailed docs 
+- [﻿BlockNote](https://github.com/TypeCellOS/BlockNote) : Looks like Notion block
+- [﻿Yoopta-Editor](https://github.com/Darginec05/Yoopta-Editor) 
+- LiveBlock:  real-time collaboration
+    - [﻿liveblocks.io/](https://liveblocks.io/) 
 - Tiptap 
     - [﻿tiptap.dev/docs/examples/basics/default-text-editor](https://tiptap.dev/docs/examples/basics/default-text-editor)  
     - [﻿tiptap.dev/docs/editor/extensions/nodes/image](https://tiptap.dev/docs/editor/extensions/nodes/image) 
 ### CSS Style
 - Figma AI
+- Tailwind
 - Pure CSS
     - how to unify CSS styles?
 ## Backend
@@ -89,25 +95,39 @@ type Post = {
 ```
 ```
 type PostContent = {
-  postId: string;
-  postTitle: string;
-  postLink: string;
-  postThumbnail: string; // thumbnail image
-  postContent: string; // use react markdown to render it
+  postID: string;
+  postTitle: string; 
+  postThumbnail: File; // default: travel.jpeg 
+  postPreviewLink: string;
+  block: Block; // editor.js input format
+  travelPlan: Plan; 
 }
-
-postContent Markdown
-## Video Content
-Here is a video:
-<video src="https://www.youtube.com/watch?v=dQw4w9WgXcQ"></video>
-Image: 
-<img src={image_link_from_gcs}></img>
 ```
 ```
 type PostUploadContent = {
-  content: string;
   postTitle: string;
-  postThumbnail: string;
+  postThumbnail: file;
+  blockData: Block;
+  travelPlan: Plan; 
+}
+```
+```
+type BlockData = {
+  time: timestamp;
+  id: string; 
+  blocks: Block[] 
+}
+
+type Block = {
+  blockId: string;
+  blocks: [
+    
+  ]
+}
+```
+```
+type Plan = {
+  
 }
 ```
 ### Upload Image
@@ -155,8 +175,175 @@ response[200] OK
 Content-Type: application/json
 data: PostContent
 ```
+# Frontend Story: AI & Block Editor
+## AI Candidates
+- OpenAI
+- Claude
+- Llama
+## Editor Candidates
+- Editor.js
+## Data
+### Travel Plan Data
+```
+{
+  "travel_plan": [
+    {
+      "day": 1,
+      "departure": "Austin, TX",
+      "destination": "San Antonio, TX",
+      "activities": [
+        {"time": "morning", "activity": "Depart from Austin to San Antonio (1.5-hour drive)"},
+        {"time": "afternoon", "activity": "Visit the Alamo and River Walk"},
+        {"time": "evening", "activity": "Enjoy dinner in the Pearl District"}
+      ],
+      "overnight": "San Antonio, TX"
+    },
+    {
+      "day": 2,
+      "departure": "San Antonio, TX",
+      "destination": "El Paso, TX",
+      "activities": [
+        {"time": "morning", "activity": "Drive to El Paso (8-hour drive)"},
+        {"time": "afternoon", "activity": "Explore the El Paso Museum of Art"},
+        {"time": "evening", "activity": "Enjoy local cuisine at L&J Cafe"}
+      ],
+      "overnight": "El Paso, TX"
+    },
+    {
+      "day": 3,
+      "departure": "El Paso, TX",
+      "destination": "Tucson, AZ",
+      "activities": [
+        {"time": "morning", "activity": "Depart for Tucson (4.5-hour drive)"},
+        {"time": "afternoon", "activity": "Visit Saguaro National Park"},
+        {"time": "evening", "activity": "Dinner at El Charro Café"}
+      ],
+      "overnight": "Tucson, AZ"
+    },
+    {
+      "day": 4,
+      "departure": "Tucson, AZ",
+      "destination": "Phoenix, AZ",
+      "activities": [
+        {"time": "morning", "activity": "Drive to Phoenix (2-hour drive)"},
+        {"time": "afternoon", "activity": "Explore Desert Botanical Garden"},
+        {"time": "evening", "activity": "Dinner in downtown Phoenix"}
+      ],
+      "overnight": "Phoenix, AZ"
+    },
+    {
+      "day": 5,
+      "departure": "Phoenix, AZ",
+      "destination": "Los Angeles, CA",
+      "activities": [
+        {"time": "morning", "activity": "Drive to Los Angeles (6-hour drive)"},
+        {"time": "afternoon", "activity": "Visit Griffith Observatory or Santa Monica Pier"},
+        {"time": "evening", "activity": "Dinner in West Hollywood"}
+      ],
+      "overnight": "Los Angeles, CA"
+    },
+    {
+      "day": 6,
+      "departure": "Los Angeles, CA",
+      "destination": "Santa Barbara, CA",
+      "activities": [
+        {"time": "morning", "activity": "Depart for Santa Barbara (2-hour drive)"},
+        {"time": "afternoon", "activity": "Explore Stearns Wharf and State Street"},
+        {"time": "evening", "activity": "Dinner at a beachside restaurant"}
+      ],
+      "overnight": "Santa Barbara, CA"
+    },
+    {
+      "day": 7,
+      "departure": "Santa Barbara, CA",
+      "destination": "San Francisco, CA",
+      "activities": [
+        {"time": "morning", "activity": "Drive to San Francisco (5-hour drive)"},
+        {"time": "afternoon", "activity": "Visit Golden Gate Bridge and Fisherman's Wharf"},
+        {"time": "evening", "activity": "Dinner in Chinatown"}
+      ],
+      "overnight": "San Francisco, CA"
+    }
+  ]
+}
+```
+### Block Editor Data 
+```
+{
+  "time": 1633345270320,
+  "blocks": [
+    {
+      "type": "header",
+      "data": {
+        "text": "Editor.js Example",
+        "level": 2
+      }
+    },
+    {
+      "type": "paragraph",
+      "data": {
+        "text": "This is an example of content for Editor.js."
+      }
+    },
+    {
+      "type": "image",
+      "data": {
+        "file": {
+          "url": "https://example.com/image.jpg"
+        },
+        "caption": "Example Image",
+        "withBorder": false,
+        "stretched": false,
+        "withBackground": false
+      }
+    },
+    {
+      "type": "list",
+      "data": {
+        "style": "unordered",
+        "items": [
+          "First item",
+          "Second item",
+          "Third item"
+        ]
+      }
+    }
+  ],
+  "version": "2.22.2"
+}
+```
+## How AI works with Editor
+1. At AI assistance page, user chat with AI assistance and confirm the travel plan
+2. then request AI to generate travel plan and block editor json data
+    1. travel plan data 
+        1. maybe later used to compare with block editor data
+        2. generate travel report
+        3. machine learning
+    2. block editor data -> editor.js input format
+3. both data will be saved in the Post 
+4. after data saved success, navigate to Post page
+```
+PostContent = {
+  postID: "post123"
+  postTitle: "AI generated travel plan",
+  postThumbnail: travel.jpeg File
+  postPreviewLink: ""
+  block: Block; // editor.js input format
+  travelPlan: Plan; 
+}
+```
+# Maybe Useful
+[﻿www.langchain.com/](https://www.langchain.com/) 
+
+[﻿www.pinecone.io/](https://www.pinecone.io/) 
 
 
 
 
+<!-- eraser-additional-content -->
+## Diagrams
+<!-- eraser-additional-files -->
+<a href="/README-FlowChart-1.eraserdiagram" data-element-id="t8XJn4yzZsfzSLFqMhi_l"><img src="/.eraser/msyd9SQo08JUWQItKwPb___U806QwDlsSPtLlAvlCOgMCkeE3W2___---diagram----14acf7252718882ca76278458be2983b-FlowChart.png" alt="" data-element-id="t8XJn4yzZsfzSLFqMhi_l" /></a>
+<!-- end-eraser-additional-files -->
+<!-- end-eraser-additional-content -->
 <!--- Eraser file: https://app.eraser.io/workspace/msyd9SQo08JUWQItKwPb --->
