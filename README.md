@@ -16,7 +16,7 @@ Go backend: [﻿github.com/Yuqizhoujoe/travelgo](https://github.com/Yuqizhoujoe/
 
 Java backend: [﻿github.com/stacyji/travelJava](https://github.com/stacyji/travelJava) 
 
-Design: [﻿builder.io/content](https://builder.io/content) 
+AI backend: [﻿github.com/Yuqizhoujoe/travel-ai](https://github.com/Yuqizhoujoe/travel-ai) 
 
 # Tech Stack
 ## Frontend
@@ -31,21 +31,25 @@ Design: [﻿builder.io/content](https://builder.io/content)
     - [﻿tiptap.dev/docs/examples/basics/default-text-editor](https://tiptap.dev/docs/examples/basics/default-text-editor)  
     - [﻿tiptap.dev/docs/editor/extensions/nodes/image](https://tiptap.dev/docs/editor/extensions/nodes/image) 
 ### CSS Style
-- Figma AI
 - Tailwind
 - Pure CSS
-    - how to unify CSS styles?
 ## Backend
 - Go, Gin
 - Java, Sprint boot
+- Python, FastAPI
+# AI
+- OpenAI
+- Llama maybe 
+- need to explore more AI models (cheap one)
 ## Cloud
 - GCP
 ## Database
 - Firestore
 ## Authentication
 - Firebase
-## CICD
+## CICD 
 - Github Actions
+    - [﻿CICD](https://app.eraser.io/workspace/msyd9SQo08JUWQItKwPb?elements=5FHxVmuxJde0XyqCaz8Rvg) 
 ## Deployment
 - Docker
 - Kubernetes
@@ -270,46 +274,57 @@ data: PostContent
 ### Block Editor Data 
 ```
 {
-  "time": 1633345270320,
-  "blocks": [
-    {
-      "type": "header",
-      "data": {
-        "text": "Editor.js Example",
-        "level": 2
-      }
-    },
-    {
-      "type": "paragraph",
-      "data": {
-        "text": "This is an example of content for Editor.js."
-      }
-    },
-    {
-      "type": "image",
-      "data": {
-        "file": {
-          "url": "https://example.com/image.jpg"
-        },
-        "caption": "Example Image",
-        "withBorder": false,
-        "stretched": false,
-        "withBackground": false
-      }
-    },
-    {
-      "type": "list",
-      "data": {
-        "style": "unordered",
-        "items": [
-          "First item",
-          "Second item",
-          "Third item"
-        ]
-      }
+    "postTitle": "",
+    "editorJsData": {
+        "time": 1721971492700,
+        "blocks": [
+            {
+                "id": "z5VSMjNY6A",
+                "type": "header1",
+                "data": {
+                    "text": "Title",
+                    "level": 1
+                }
+            },
+            {
+                "id": "PbUGfnhdZU",
+                "type": "header2",
+                "data": {
+                    "text": "Second Title",
+                    "level": 2
+                }
+            },
+            {
+                "id": "mN1OXYkLBl",
+                "type": "header3",
+                "data": {
+                    "text": "Third Title",
+                    "level": 3
+                }
+            },
+            {
+                "id": "sJbj-8_CNY",
+                "type": "paragraph",
+                "data": {
+                    "text": "what do you think"
+                }
+            },
+            {
+                "id": "KfWy7_QNwL",
+                "type": "image",
+                "data": {
+                    "caption": "anime boys",
+                    "withBorder": false,
+                    "withBackground": false,
+                    "stretched": false,
+                    "file": {
+                        "url": "https://storage.googleapis.com/travel-go-f77a8.appspot.com/_%20%281%29.jpeg?Expires=1721975079&GoogleAccessId=firebase-adminsdk-5ax28%40travel-go-f77a8.iam.gserviceaccount.com&Signature=N2Fkg4hIvZUdRKoQYDup0zPNDYzy1l438Jrko%2FyuiPASfS3HpldP3hwU4d%2FIlVN%2BC8%2BR33iM1p6Uk3Y%2BjJGnuv%2Fkyoy78NdKRRLjWkJOhxnGB7UWuMJ8smJds9ALfmaLH1OzC3UboCsPZtXYbEVlCNiWsdLBtY%2FG4agEDM32N%2FI2Ubsn03bKeGRXQtJSiHDCKXicgJsef09rRjltgc7qQ7eO8XxMjbapEfCnUihflM50lOLSdQmtoZDGGbR45w%2FWyj3Cyq%2FtgEtoPDt%2Fmhpqz3rrk4Q%2Fq%2FLzMlwQSQsIbnjTfmq5Vtlshsxn%2BcfI7usyoMGnYHik3vVc04dpWu8Ojw%3D%3D"
+                    }
+                }
+            }
+        ],
+        "version": "2.30.2"
     }
-  ],
-  "version": "2.22.2"
 }
 ```
 ## How AI works with Editor
