@@ -355,10 +355,5 @@ PostContent = {
 
 
 
-<!-- eraser-additional-content -->
-## Diagrams
-<!-- eraser-additional-files -->
-<a href="/README-FlowChart-1.eraserdiagram" data-element-id="t8XJn4yzZsfzSLFqMhi_l"><img src="/.eraser/msyd9SQo08JUWQItKwPb___U806QwDlsSPtLlAvlCOgMCkeE3W2___---diagram----14acf7252718882ca76278458be2983b-FlowChart.png" alt="" data-element-id="t8XJn4yzZsfzSLFqMhi_l" /></a>
-<!-- end-eraser-additional-files -->
-<!-- end-eraser-additional-content -->
+
 <!--- Eraser file: https://app.eraser.io/workspace/msyd9SQo08JUWQItKwPb --->
