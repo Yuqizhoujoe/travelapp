@@ -7,6 +7,8 @@ AddOn Features:
 
 - AI assistance
 - Machine learning recommendation
+# TODO
+- [ ] Use gRPC between AI service and Blog management Service
 # Repos
 App Docs: [﻿github.com/Yuqizhoujoe/travelapp](https://github.com/Yuqizhoujoe/travelapp) 
 
@@ -85,99 +87,9 @@ AI backend: [﻿github.com/Yuqizhoujoe/travel-ai](https://github.com/Yuqizhoujoe
         - [﻿github.com/run-llama/llama_index](https://github.com/run-llama/llama_index)  
         - [﻿docs.gpt4all.io/gpt4all_desktop/models.html](https://docs.gpt4all.io/gpt4all_desktop/models.html) 
 - Breakdown travel plan into piece and user can edit each piece (not sure the AI model output)
-# API design
-## Post
+# API Document
 ```
-type Post = {
-  postId: string;
-  postTitle: string;
-  postLink: string; // user might share outside the platform
-  postThumbnail: string; // thumbnail image
-  timestamp: string;
-  location: string;  
-}
-```
-```
-type PostContent = {
-  postID: string;
-  postTitle: string; 
-  postThumbnail: File; // default: travel.jpeg 
-  postPreviewLink: string;
-  block: Block; // editor.js input format
-  travelPlan: Plan; 
-}
-```
-```
-type PostUploadContent = {
-  postTitle: string;
-  postThumbnail: file;
-  blockData: Block;
-  travelPlan: Plan; 
-}
-```
-```
-type BlockData = {
-  time: timestamp;
-  id: string; 
-  blocks: Block[] 
-}
-
-type Block = {
-  blockId: string;
-  blocks: [
-    
-  ]
-}
-```
-```
-type Plan = {
-  
-}
-```
-### Upload Image
-```
-POST /travel/posts/upload
-Content-Type: multipart/form-data
-body: FormData {file}
-
-response[200] OK
-Content-Type: application/json
-data: {
-  link: string -> GCS location link 
-}
-```
-### Create Post
-```
-POST /travel/posts 
-Content-Type: application/json
-body: PostUploadContent
-
-response[201] Created
-Content-Type: application/json
-data: {
-  success: true,
-  postId
-}
-
-success -> navigate(/posts/{postId})
-```
-### Get Posts
-```
-GET /travel/posts
-
-response[200] OK
-Content-Type: application/json
-data: Post[]
-```
-### Get Post Content - Post View page
-```
-after travel.com/posts/123
-
-GET /travel/posts/{POST_ID}
-
-response[200] OK
-Content-Type: application/json
-data: PostContent
+coming soon
 ```
 # Frontend Story: AI & Block Editor
 ## AI Candidates
@@ -272,7 +184,7 @@ data: PostContent
 }
 ```
 ### Block Editor Data 
-```
+```yaml
 {
     "postTitle": "",
     "editorJsData": {
@@ -337,7 +249,7 @@ data: PostContent
     2. block editor data -> editor.js input format
 3. both data will be saved in the Post 
 4. after data saved success, navigate to Post page
-```
+```yaml
 PostContent = {
   postID: "post123"
   postTitle: "AI generated travel plan",
