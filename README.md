@@ -14,11 +14,13 @@ App Docs: [﻿github.com/Yuqizhoujoe/travelapp](https://github.com/Yuqizhoujoe/t
 
 Web: [﻿github.com/Yuqizhoujoe/travelweb](https://github.com/Yuqizhoujoe/travelweb) 
 
-Go backend: [﻿github.com/Yuqizhoujoe/travelgo](https://github.com/Yuqizhoujoe/travelgo) 
+Blog Management Service: [﻿github.com/Yuqizhoujoe/travelgo](https://github.com/Yuqizhoujoe/travelgo) 
 
 Java backend: [﻿github.com/stacyji/travelJava](https://github.com/stacyji/travelJava) 
 
-AI backend: [﻿github.com/Yuqizhoujoe/travel-ai](https://github.com/Yuqizhoujoe/travel-ai) 
+AI Service: [﻿github.com/Yuqizhoujoe/travel-ai](https://github.com/Yuqizhoujoe/travel-ai) 
+
+User Service: [﻿github.com/Yuqizhoujoe/traveluser](https://github.com/Yuqizhoujoe/traveluser) 
 
 # Tech Stack
 ## Frontend
