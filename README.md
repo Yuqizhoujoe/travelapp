@@ -58,7 +58,7 @@ User Service: [﻿github.com/Yuqizhoujoe/traveluser](https://github.com/Yuqizhou
 ## Deployment
 - Docker
 - Kubernetes
-- GCP
+- Google Cloud Run
 # Functionality
 ## Feed - based on the destination
 - Get the travel destination information (Not sure) Web crawler
