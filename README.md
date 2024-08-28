@@ -23,6 +23,8 @@ AI Service: [﻿github.com/Yuqizhoujoe/travel-ai](https://github.com/Yuqizhoujoe
 
 User Service: [﻿github.com/Yuqizhoujoe/traveluser](https://github.com/Yuqizhoujoe/traveluser) 
 
+User Service `protobuf` : [﻿github.com/Yuqizhoujoe/user-service-proto](https://github.com/Yuqizhoujoe/user-service-proto) 
+
 # Tech Stack
 ## Frontend
 - React, TypeScript
