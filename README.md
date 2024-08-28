@@ -1,14 +1,15 @@
 <p><a target="_blank" href="https://app.eraser.io/workspace/msyd9SQo08JUWQItKwPb" id="edit-in-eraser-github-link"><img alt="Edit in Eraser" src="https://firebasestorage.googleapis.com/v0/b/second-petal-295822.appspot.com/o/images%2Fgithub%2FOpen%20in%20Eraser.svg?alt=media&amp;token=968381c8-a7e7-472a-8ed6-4a6626da5501"></a></p>
 
 # HaveFunTravel
-Core: Travel Blog management system
+Core: AI Travel Blog management system
 
-AddOn Features:
+Features AddOn later:
 
-- AI assistance
-- Machine learning recommendation
+- Recommendation System
+- Content Management System
 # TODO
-- [ ] Use gRPC between AI service and Blog management Service
+- [ ] Set up Google Cloud Run for backend services deployment
+- [ ] Set up firebase for frontend application deployment
 # Repos
 App Docs: [﻿github.com/Yuqizhoujoe/travelapp](https://github.com/Yuqizhoujoe/travelapp) 
 
@@ -26,10 +27,10 @@ User Service: [﻿github.com/Yuqizhoujoe/traveluser](https://github.com/Yuqizhou
 ## Frontend
 - React, TypeScript
 ### Post Editor
-- [﻿Editor.js](https://editorjs.io/) : Amazing, Bravo!! Have very detailed docs 
-- [﻿BlockNote](https://github.com/TypeCellOS/BlockNote) : Looks like Notion block
-- [﻿Yoopta-Editor](https://github.com/Darginec05/Yoopta-Editor) 
-- LiveBlock:  real-time collaboration
+- [﻿Editor.js](https://editorjs.io/)  : Amazing, Bravo!! Have very detailed docs 
+- [﻿BlockNote](https://github.com/TypeCellOS/BlockNote)  : Looks like Notion block
+- [﻿Yoopta-Editor](https://github.com/Darginec05/Yoopta-Editor)  
+- LiveBlock: real-time collaboration
     - [﻿liveblocks.io/](https://liveblocks.io/) 
 - Tiptap 
     - [﻿tiptap.dev/docs/examples/basics/default-text-editor](https://tiptap.dev/docs/examples/basics/default-text-editor)  
@@ -51,7 +52,7 @@ User Service: [﻿github.com/Yuqizhoujoe/traveluser](https://github.com/Yuqizhou
 - Firestore
 ## Authentication
 - Firebase
-## CICD 
+## CICD
 - Github Actions
     - [﻿CICD](https://app.eraser.io/workspace/msyd9SQo08JUWQItKwPb?elements=5FHxVmuxJde0XyqCaz8Rvg) 
 ## Deployment
@@ -185,7 +186,7 @@ coming soon
   ]
 }
 ```
-### Block Editor Data 
+### Block Editor Data
 ```yaml
 {
     "postTitle": "",
@@ -265,8 +266,6 @@ PostContent = {
 [﻿www.langchain.com/](https://www.langchain.com/) 
 
 [﻿www.pinecone.io/](https://www.pinecone.io/) 
-
-
 
 
 
